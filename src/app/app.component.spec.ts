@@ -1,17 +1,29 @@
-import { TestBed } from '@angular/core/testing';
+import { Location } from "@angular/common";
+import { fakeAsync, TestBed } from '@angular/core/testing';
+import { Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
+import { routes } from "./app-routing.module";
 import { AppComponent } from './app.component';
+import { UserListComponent } from "./features/users/components/user-list/user-list.component";
 
 describe('AppComponent', () => {
+  let router: Router;
+  let location: Location;
+  
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule
+        RouterTestingModule.withRoutes(routes)
       ],
       declarations: [
-        AppComponent
+        AppComponent,
+        UserListComponent
       ],
     }).compileComponents();
+
+    router = TestBed.inject(Router);
+    location = TestBed.inject(Location);
+    router.initialNavigation();
   });
 
   it('should create the app', () => {
@@ -26,10 +38,15 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('jumia-exercise');
   });
 
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('jumia-exercise app is running!');
-  });
+  it('navigate to "" redirects you to /users', fakeAsync(() => {
+    router.navigate([""]).then(() => {
+      expect(location.path()).toBe("/users");
+    });
+  }));
+
+  it('navigate to "users" takes you to /users', fakeAsync(() => {
+    router.navigate(["users"]).then(() => {
+      expect(location.path()).toBe("/users");
+    });
+  }));
 });

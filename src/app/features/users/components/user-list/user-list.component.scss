@@ -1,0 +1,169 @@
+$headerFontSize: 1rem;
+$textFontSize: 0.9rem;
+
+.user-img {
+    width: 40px;
+    height: 40px;
+    vertical-align: middle;
+    border-radius: 50%
+}
+
+:host ::ng-deep {
+    .users-table {
+        .filters {
+            display: flex;
+            align-items: end;
+
+            .input-label {
+                margin-bottom: 5px;
+                font-size: $headerFontSize;
+                line-height: 28px;
+                font-weight: 600;
+            }
+        }
+        .p-datatable {
+            table {
+                width: 100%;
+                margin: 0.8rem auto 0;
+                border-spacing: 0 1em;
+                border-collapse: separate;
+                table-layout: auto;
+            }
+
+            .p-datatable-header {
+                display: flex;
+                border: none;
+                background: transparent;
+                color: var(--main-text);
+
+                p-multiselect {
+                    display: block;
+                    margin-right: 3.5rem;
+                }
+
+                .p-multiselect {
+                    border-radius: 17px;
+
+                    .p-multiselect-label {
+                        padding: 0.55rem 0.75rem;
+                    }
+                }
+
+                .p-inputtext {
+                    padding: 0.55rem 0.75rem;
+                    border-radius: 17px;
+                }
+
+                .p-button {
+                    background: var(--addtion-bg);
+                    border: 1px solid var(--addtion-bg);
+
+                    .p-button-icon {
+                        font-size: 20px;
+                    }
+
+                    &:enabled {
+                        &:hover {
+                            border-color: var(--addtion-bg);
+                        }
+                    }
+                }
+
+                // .export-btn {
+                //     margin-left: auto;
+                // }
+            }
+
+            .p-datatable-thead {
+                & > tr {
+                    & > th {
+                        border: none;
+                        background-color: transparent;
+                        color: var(--main-text);
+                    }
+                }
+            }
+ 
+            .p-datatable-tbody {
+                & > tr {
+                    background: var(--primary-bg);
+                    color: var(--secondary-text);
+
+                    & > td {
+                        padding: 0.3rem 1rem;
+                        border: none;
+                    }
+                }
+
+                td {
+                    &:first-child {
+                        border-top-left-radius: 22px;
+                        border-bottom-left-radius: 22px;
+                    }
+
+                    &:last-child {
+                        border-top-right-radius: 22px;
+                        border-bottom-right-radius: 22px;
+                    }
+                }
+            }
+        } 
+    }
+}
+
+
+
+// X-Small devices (portrait phones, less than 576px)
+@media (max-width: 575.98px) {
+    :host ::ng-deep {
+        .users-table {
+            .p-datatable {
+                .p-datatable-header {
+                    flex-direction: column;
+                    .p-inputtext {
+                        padding: 0.35rem 0.75rem;
+                    }
+                    .p-column-filter-row {
+                        p-columnfilterformelement {
+                            width: 100%;
+                        }
+                    }
+
+                    .p-multiselect {
+                        .p-multiselect-label {
+                            padding: 0.35rem 0.75rem;
+                        }
+                    }
+
+                    .p-button.p-button-icon-only {
+                        width: 2.5rem;
+                        padding: 0.65rem 0;
+                    }
+                }
+
+                .p-datatable-tbody > tr > td {
+                    font-size: 0.8rem;
+                }
+            }
+
+            .filters {
+                .input-label {
+                    font-size: 0.8rem;
+                }
+            }
+        }
+    }
+}
+
+// Small devices (landscape phones, less than 768px)
+@media (max-width: 767.98px) {   }
+
+// Medium devices (tablets, less than 992px)
+@media (max-width: 991.98px) {   }
+
+// Large devices (desktops, less than 1200px)
+@media (max-width: 1199.98px) {   }
+
+// X-Large devices (large desktops, less than 1400px)
+@media (max-width: 1399.98px) {   }
+
