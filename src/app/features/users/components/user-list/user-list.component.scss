@@ -12,7 +12,13 @@ $textFontSize: 0.9rem;
     .users-table {
         .filters {
             display: flex;
-            align-items: end;
+            align-items: flex-end;
+
+            &:first-child {
+                div {
+                    width: 100%;
+                }
+            }
 
             .input-label {
                 margin-bottom: 5px;
@@ -47,6 +53,29 @@ $textFontSize: 0.9rem;
                     .p-multiselect-label {
                         padding: 0.55rem 0.75rem;
                     }
+                    
+                    .p-multiselect-panel {
+                        .p-multiselect-items {
+                            &:not(.p-multiselect-virtualscroll) {
+                                background: #f8f9fa;
+                            }
+                            .p-multiselect-item {
+                                &.p-highlight {
+                                    color: #000;
+                                    background: transparent;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .p-checkbox {
+                    .p-checkbox-box {
+                        &.p-highlight {
+                            border-color: var(--org-bg);
+                            background: var(--org-bg);
+                        }
+                    }
                 }
 
                 .p-inputtext {
@@ -55,8 +84,8 @@ $textFontSize: 0.9rem;
                 }
 
                 .p-button {
-                    background: var(--addtion-bg);
-                    border: 1px solid var(--addtion-bg);
+                    background: var(--org-bg);
+                    border: 1px solid var(--org-bg);
 
                     .p-button-icon {
                         font-size: 20px;
@@ -156,10 +185,89 @@ $textFontSize: 0.9rem;
 }
 
 // Small devices (landscape phones, less than 768px)
-@media (max-width: 767.98px) {   }
+@media (max-width: 767.98px) {
+    :host ::ng-deep {
+        .users-table {
+            .p-datatable {
+                .p-datatable-header {
+                    flex-direction: column;
+                    
+                    // .p-inputtext {
+                    //     padding: 0.35rem 0.75rem;
+                    // }
+                    // .p-column-filter-row {
+                    //     p-columnfilterformelement {
+                    //         width: 100%;
+                    //     }
+                    // }
+
+                    .p-multiselect {
+                        width: 38vw;
+                        // .p-multiselect-label {
+                        //     padding: 0.35rem 0.75rem;
+                        // }
+                    }
+
+                    // .p-button.p-button-icon-only {
+                    //     width: 2.5rem;
+                    //     padding: 0.65rem 0;
+                    // }
+                }
+
+                // .p-datatable-tbody > tr > td {
+                //     font-size: 0.8rem;
+                // }
+            }
+
+            // .filters {
+            //     .input-label {
+            //         font-size: 0.8rem;
+            //     }
+            // }
+        }
+    }
+}
 
 // Medium devices (tablets, less than 992px)
-@media (max-width: 991.98px) {   }
+@media (max-width: 991.98px) {
+    :host ::ng-deep {
+        .users-table {
+            .p-datatable {
+                .p-datatable-header {
+                    
+                    // .p-inputtext {
+                    //     padding: 0.35rem 0.75rem;
+                    // }
+                    // .p-column-filter-row {
+                    //     p-columnfilterformelement {
+                    //         width: 100%;
+                    //     }
+                    // }
+
+                    // .p-multiselect {
+                    //     // width: 38vw;
+                    //     // .p-multiselect-label {
+                    //     //     padding: 0.35rem 0.75rem;
+                    //     // }
+                    // }
+
+                    // .p-button.p-button-icon-only {
+                    //     width: 2.5rem;
+                    //     padding: 0.65rem 0;
+                    // }
+                }
+
+                .p-datatable-thead {
+                    & > tr {
+                        & > th {
+                            padding: 0rem 1rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
 
 // Large devices (desktops, less than 1200px)
 @media (max-width: 1199.98px) {   }

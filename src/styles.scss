@@ -1,6 +1,30 @@
 /* You can add global styles to this file, and also import other style files */
-@import 'src/assets/theme.scss';
+@import 'assets/scss/theme.scss';
 
 body {
-    background-color: var(--main-bg);
+    padding: 10px;
+    background-color: var(--main-bg) !important;
 }
+
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #e2e2e2;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: var(--primary-bg);
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--main-bg);
+  }
+
+//   .overflow_dots {
+//     overflow: hidden;
+//     display: inline-block;
+//     text-overflow: ellipsis;
+//     white-space: nowrap;
+//   }
