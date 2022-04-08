@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { TableModule } from 'primeng/table';
 import {ButtonModule} from 'primeng/button';
 import {MultiSelectModule} from 'primeng/multiselect';
+import {ToastModule} from 'primeng/toast';
 
 @NgModule({
   declarations: [],
@@ -11,12 +12,14 @@ import {MultiSelectModule} from 'primeng/multiselect';
     CommonModule,
     TableModule,
     ButtonModule,
-    MultiSelectModule
+    MultiSelectModule,
+    ToastModule
   ],
   exports: [
     TableModule,
     ButtonModule,
-    MultiSelectModule
+    MultiSelectModule,
+    ToastModule
   ]
 })
 export class SharedModule { }

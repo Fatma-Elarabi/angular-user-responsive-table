@@ -18,8 +18,6 @@ export class UsersService {
          return res.results;
      }),
      catchError( (err: HttpErrorResponse) => {
-       console.log(err);
-       
         return throwError(() => new Error(err.error));
      })
     );

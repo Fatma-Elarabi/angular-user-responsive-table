@@ -9,10 +9,10 @@ import { HttpClient } from '@angular/common/http';
 describe('UsersService', () => {
   let service: UsersService;
   let httpTestingController: HttpTestingController;
-  let userUrl = `${environment.apiUrl}?key=${environment.apiKey}&ref=dj79qdvb&results=5`;
+  const userUrl = `${environment.apiUrl}?key=${environment.apiKey}&ref=dj79qdvb&results=5`;
   let httpClient: HttpClient;
 
-  let mockData: Result[] = [
+  const mockData: Result[] = [
     {
       "name": "Jaden Jakubowski",
       "gender": "Female",

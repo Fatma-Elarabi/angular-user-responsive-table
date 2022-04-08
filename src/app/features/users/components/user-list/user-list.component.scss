@@ -10,6 +10,13 @@ $textFontSize: 0.9rem;
 
 :host ::ng-deep {
     .users-table {
+        .user-header {
+            border-bottom: 1px solid var(--main-text);
+
+            h1 {
+                color: var(--main-text);
+            }
+        }
         .filters {
             display: flex;
             align-items: flex-end;
@@ -107,14 +114,27 @@ $textFontSize: 0.9rem;
                 & > tr {
                     & > th {
                         border: none;
-                        background-color: transparent;
-                        color: var(--main-text);
+                        background-color: var(--org-bg);
+                        color: #fff;
+                    }
+                }
+
+                th {
+                    &:first-child {
+                        border-top-left-radius: 10px;
+                        border-bottom-left-radius: 10px;
+                    }
+
+                    &:last-child {
+                        border-top-right-radius: 10px;
+                        border-bottom-right-radius: 10px;
                     }
                 }
             }
  
             .p-datatable-tbody {
                 & > tr {
+                    box-shadow: 3px 3px 5px #c1c0c0;
                     background: var(--primary-bg);
                     color: var(--secondary-text);
 
@@ -126,13 +146,13 @@ $textFontSize: 0.9rem;
 
                 td {
                     &:first-child {
-                        border-top-left-radius: 22px;
-                        border-bottom-left-radius: 22px;
+                        border-top-left-radius: 10px;
+                        border-bottom-left-radius: 10px;
                     }
 
                     &:last-child {
-                        border-top-right-radius: 22px;
-                        border-bottom-right-radius: 22px;
+                        border-top-right-radius: 10px;
+                        border-bottom-right-radius: 10px;
                     }
                 }
             }
@@ -233,29 +253,6 @@ $textFontSize: 0.9rem;
     :host ::ng-deep {
         .users-table {
             .p-datatable {
-                .p-datatable-header {
-                    
-                    // .p-inputtext {
-                    //     padding: 0.35rem 0.75rem;
-                    // }
-                    // .p-column-filter-row {
-                    //     p-columnfilterformelement {
-                    //         width: 100%;
-                    //     }
-                    // }
-
-                    // .p-multiselect {
-                    //     // width: 38vw;
-                    //     // .p-multiselect-label {
-                    //     //     padding: 0.35rem 0.75rem;
-                    //     // }
-                    // }
-
-                    // .p-button.p-button-icon-only {
-                    //     width: 2.5rem;
-                    //     padding: 0.65rem 0;
-                    // }
-                }
 
                 .p-datatable-thead {
                     & > tr {

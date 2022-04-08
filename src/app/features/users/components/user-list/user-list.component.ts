@@ -3,6 +3,7 @@ import { Column, Result } from '../../models/users';
 import { UsersService } from '../../services/users.service';
 import * as FileSaver from 'file-saver';
 import { Subject, takeUntil } from 'rxjs';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-user-list',
@@ -32,7 +33,10 @@ export class UserListComponent implements OnInit, OnDestroy {
   // filteredUser!: Result[];
   // mainUesr!: Result[]
 
-  constructor(private userService: UsersService) { }
+  constructor(
+    private userService: UsersService,
+    private messageService: MessageService
+    ) { }
 
   ngOnInit(): void {
     this.getUsers();
@@ -40,16 +44,16 @@ export class UserListComponent implements OnInit, OnDestroy {
   }
 
   getUsers(): void {
-    this.userService.getUsers().pipe(takeUntil(this._destroyed$))
-    .subscribe(users => {
-      this.users = users;
-      // this.mainUesr = this.users;
-      console.log(this.users);
-      
-    },
-    error => {}
-    );
+    this.userService.getUsers().pipe(takeUntil(this._destroyed$)).subscribe({
+      next: (users) => {
+        this.users = users;
+      },
+      error: () => {
+        this.messageService.add({severity:'error', detail: 'Something Went Wrong'});
+      }
+    });
   }
+
 
   exportExcel() {
     import("xlsx").then(xlsx => {
@@ -61,13 +65,13 @@ export class UserListComponent implements OnInit, OnDestroy {
   }
 
   saveAsExcelFile(buffer: BlobPart, fileName: string): void {
-    let EXCEL_TYPE = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8';
-    let EXCEL_EXTENSION = '.xlsx';
+    const EXCEL_TYPE = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8';
+    const EXCEL_EXTENSION = '.xlsx';
     const data: Blob = new Blob([buffer], {
         type: EXCEL_TYPE
     });
     FileSaver.saveAs(data, fileName + '_export_' + new Date().getTime() + EXCEL_EXTENSION);
-  }  
+  }
 
   @Input() get selectedCols(): Column[] {
     return this.selectedColumns;

@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { SharedModule } from './features/shared/shared.module';
 import { UserListComponent } from './features/users/components/user-list/user-list.component';
 import { FormsModule } from '@angular/forms';
+import { MessageService } from 'primeng/api';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,7 @@ import { FormsModule } from '@angular/forms';
     FormsModule,
     SharedModule
   ],
-  providers: [],
+  providers: [MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

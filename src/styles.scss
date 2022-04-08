@@ -2,7 +2,7 @@
 @import 'assets/scss/theme.scss';
 
 body {
-    padding: 10px;
+    padding: 55px;
     background-color: var(--main-bg) !important;
 }
 
@@ -28,3 +28,9 @@ body {
 //     text-overflow: ellipsis;
 //     white-space: nowrap;
 //   }
+
+@media (max-width: 575.98px) {
+  body {
+    padding: 25px;
+  }
+}

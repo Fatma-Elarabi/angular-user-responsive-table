@@ -14,7 +14,7 @@ describe('UserListComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [ UserListComponent ],
       imports: [
-        HttpClientTestingModule 
+        HttpClientTestingModule
       ],
       providers: [
         UsersService

@@ -1,4 +1,8 @@
+<p-toast position="top-right"></p-toast>
 <div class="users-table">
+    <div class="user-header">
+        <h1>New Users</h1>
+    </div>
     <p-table [value]="users" responsiveLayout="stack" [columns]="selectedCols">
         <ng-template pTemplate="caption">
             <!-- <p-multiSelect [options]="gender" [(ngModel)]="selectedGender" (ngModelChange)="getSelectedGender()" optionLabel="name" optionValue="name"></p-multiSelect> -->
