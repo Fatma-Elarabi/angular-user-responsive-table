@@ -5,9 +5,12 @@ import { TableModule } from 'primeng/table';
 import {ButtonModule} from 'primeng/button';
 import {MultiSelectModule} from 'primeng/multiselect';
 import {ToastModule} from 'primeng/toast';
+import { DateAgoPipe } from './pipes/date-ago.pipe';
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    DateAgoPipe
+  ],
   imports: [
     CommonModule,
     TableModule,
@@ -16,6 +19,7 @@ import {ToastModule} from 'primeng/toast';
     ToastModule
   ],
   exports: [
+    DateAgoPipe,
     TableModule,
     ButtonModule,
     MultiSelectModule,

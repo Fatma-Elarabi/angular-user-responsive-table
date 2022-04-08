@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { MessageService } from 'primeng/api';
 import { UsersService } from '../../services/users.service';
 
 import { UserListComponent } from './user-list.component';
@@ -17,7 +18,8 @@ describe('UserListComponent', () => {
         HttpClientTestingModule
       ],
       providers: [
-        UsersService
+        UsersService,
+        MessageService,
       ]
     })
     .compileComponents();

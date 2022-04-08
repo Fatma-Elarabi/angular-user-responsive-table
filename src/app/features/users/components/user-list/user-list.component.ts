@@ -21,17 +21,10 @@ export class UserListComponent implements OnInit, OnDestroy {
   { field: 'email', header: 'Email' },
   { field: 'age', header: 'Age' },
   { field: 'seniority', header: 'Seniority' },
-  { field: 'phoneNumber', header: 'Phone Number' },
+  { field: 'phoneNumber', header: 'Phone' },
   { field: 'nationality', header: 'Nationality' }];
-
   selectedColumns!: Column[];
-  // gender = [
-  //   { id:1, name:'Female' },
-  //   { id:2, name:'Male' }
-  // ]
-  // selectedGender = [];
-  // filteredUser!: Result[];
-  // mainUesr!: Result[]
+  loading = true;
 
   constructor(
     private userService: UsersService,
@@ -45,15 +38,14 @@ export class UserListComponent implements OnInit, OnDestroy {
 
   getUsers(): void {
     this.userService.getUsers().pipe(takeUntil(this._destroyed$)).subscribe({
-      next: (users) => {
-        this.users = users;
-      },
+      next: (users) => this.users = users,
       error: () => {
-        this.messageService.add({severity:'error', detail: 'Something Went Wrong'});
-      }
+        this.messageService.add({severity:'error', detail: 'Something Went Wrong'})
+        this.loading = false
+      },
+      complete: () => this.loading = false
     });
   }
-
 
   exportExcel() {
     import("xlsx").then(xlsx => {
@@ -81,21 +73,8 @@ export class UserListComponent implements OnInit, OnDestroy {
       this.selectedColumns = this.cols.filter((col: Column) => val.includes(col));
   }
 
-  // getSelectedGender(): void {
-  //   this.users = this.mainUesr;
-  //   if(this.selectedGender.length > 0) {
-  //     this.filteredUser = [];
-  //     this.selectedGender.forEach(selectedGender => {
-  //       this.filteredUser.push(...this.users.filter(user => user.gender === selectedGender))
-  //     });
-  //     this.users = this.filteredUser
-  //   }
-  // }
-
-
   ngOnDestroy() {
     this._destroyed$.next();
     this._destroyed$.complete();
   }
-
 }

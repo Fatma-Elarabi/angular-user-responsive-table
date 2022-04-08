@@ -1,7 +1,10 @@
 import { Location } from "@angular/common";
+import { HttpClient } from "@angular/common/http";
+import { HttpClientTestingModule } from "@angular/common/http/testing";
 import { fakeAsync, TestBed } from '@angular/core/testing';
 import { Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
+import { MessageService } from "primeng/api";
 import { routes } from "./app-routing.module";
 import { AppComponent } from './app.component';
 import { UserListComponent } from "./features/users/components/user-list/user-list.component";
@@ -9,18 +12,21 @@ import { UserListComponent } from "./features/users/components/user-list/user-li
 describe('AppComponent', () => {
   let router: Router;
   let location: Location;
-  
+  let httpClient: HttpClient;
+
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule.withRoutes(routes)
+        RouterTestingModule.withRoutes(routes),
+        HttpClientTestingModule
       ],
       declarations: [
         AppComponent,
         UserListComponent
-      ],
+      ]
     }).compileComponents();
 
+    httpClient = TestBed.inject(HttpClient);
     router = TestBed.inject(Router);
     location = TestBed.inject(Location);
     router.initialNavigation();

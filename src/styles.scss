@@ -22,12 +22,13 @@ body {
     background: var(--main-bg);
   }
 
-//   .overflow_dots {
-//     overflow: hidden;
-//     display: inline-block;
-//     text-overflow: ellipsis;
-//     white-space: nowrap;
-//   }
+  .overflow_dots {
+    overflow: hidden;
+    display: inline-block;
+    text-overflow: ellipsis;
+    // white-space: nowrap;
+    overflow: hidden;
+  }
 
 @media (max-width: 575.98px) {
   body {

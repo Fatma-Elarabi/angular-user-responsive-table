@@ -19,7 +19,7 @@ describe('UsersService', () => {
       "location": "South America",
       "email": "ncmcaafphd@yahoo.com",
       "age": 30,
-      "seniority": "66 days ago",
+      "seniority": 1649370078,
       "phoneNumber": "(188) 810-3215",
       "nationality": "Irish",
       "img": "https://i.picsum.photos/id/1035/5854/3903.jpg?hmac=DV0AS2MyjW6ddofvSIU9TVjj1kewfh7J3WEOvflY8TM"

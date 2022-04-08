@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   apiUrl: 'https://randomapi.com/api/',
-  apiKey: 'IHWP-ILC0-48B8-F9JD'
+  apiKey: 'DLGF-U1QY-TCQI-42CN'
 };
 
 /*

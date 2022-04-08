@@ -4,7 +4,7 @@ export interface Result {
     location: string;
     email: string;
     age: number;
-    seniority: string;
+    seniority: number;
     phoneNumber: string;
     img: string;
     nationality: string;

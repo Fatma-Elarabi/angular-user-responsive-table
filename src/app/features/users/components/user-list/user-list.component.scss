@@ -1,13 +1,6 @@
 $headerFontSize: 1rem;
 $textFontSize: 0.9rem;
 
-.user-img {
-    width: 40px;
-    height: 40px;
-    vertical-align: middle;
-    border-radius: 50%
-}
-
 :host ::ng-deep {
     .users-table {
         .user-header {
@@ -17,6 +10,14 @@ $textFontSize: 0.9rem;
                 color: var(--main-text);
             }
         }
+
+        .user-img {
+            width: 40px;
+            height: 40px;
+            vertical-align: middle;
+            border-radius: 50%
+        }
+
         .filters {
             display: flex;
             align-items: flex-end;
@@ -34,6 +35,7 @@ $textFontSize: 0.9rem;
                 font-weight: 600;
             }
         }
+
         .p-datatable {
             table {
                 width: 100%;
@@ -104,10 +106,6 @@ $textFontSize: 0.9rem;
                         }
                     }
                 }
-
-                // .export-btn {
-                //     margin-left: auto;
-                // }
             }
 
             .p-datatable-thead {
@@ -160,9 +158,6 @@ $textFontSize: 0.9rem;
     }
 }
 
-
-
-// X-Small devices (portrait phones, less than 576px)
 @media (max-width: 575.98px) {
     :host ::ng-deep {
         .users-table {
@@ -190,8 +185,15 @@ $textFontSize: 0.9rem;
                     }
                 }
 
-                .p-datatable-tbody > tr > td {
-                    font-size: 0.8rem;
+                .p-datatable-tbody  {
+                    & > tr {
+                        & > td {
+                            font-size: 0.8rem;
+                        }
+                    }
+                    .ui-column-title {
+                        font-weight: 700;
+                    }
                 }
             }
 
@@ -204,56 +206,34 @@ $textFontSize: 0.9rem;
     }
 }
 
-// Small devices (landscape phones, less than 768px)
 @media (max-width: 767.98px) {
     :host ::ng-deep {
         .users-table {
             .p-datatable {
                 .p-datatable-header {
                     flex-direction: column;
-                    
-                    // .p-inputtext {
-                    //     padding: 0.35rem 0.75rem;
-                    // }
-                    // .p-column-filter-row {
-                    //     p-columnfilterformelement {
-                    //         width: 100%;
-                    //     }
-                    // }
 
                     .p-multiselect {
                         width: 38vw;
-                        // .p-multiselect-label {
-                        //     padding: 0.35rem 0.75rem;
-                        // }
                     }
-
-                    // .p-button.p-button-icon-only {
-                    //     width: 2.5rem;
-                    //     padding: 0.65rem 0;
-                    // }
                 }
 
-                // .p-datatable-tbody > tr > td {
-                //     font-size: 0.8rem;
-                // }
+                .p-datatable-tbody  {
+                    & > tr {
+                        & > td {
+                            font-size: 0.8rem;
+                        }
+                    }
+                }
             }
-
-            // .filters {
-            //     .input-label {
-            //         font-size: 0.8rem;
-            //     }
-            // }
         }
     }
 }
 
-// Medium devices (tablets, less than 992px)
 @media (max-width: 991.98px) {
     :host ::ng-deep {
         .users-table {
             .p-datatable {
-
                 .p-datatable-thead {
                     & > tr {
                         & > th {
@@ -265,10 +245,3 @@ $textFontSize: 0.9rem;
         }
     }
 }
-
-// Large devices (desktops, less than 1200px)
-@media (max-width: 1199.98px) {   }
-
-// X-Large devices (large desktops, less than 1400px)
-@media (max-width: 1399.98px) {   }
-
