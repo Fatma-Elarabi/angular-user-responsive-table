@@ -13,7 +13,7 @@ describe('UserListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ UserListComponent ],
+      declarations: [UserListComponent],
       imports: [
         HttpClientTestingModule
       ],
@@ -22,7 +22,7 @@ describe('UserListComponent', () => {
         MessageService,
       ]
     })
-    .compileComponents();
+      .compileComponents();
 
     httpClient = TestBed.inject(HttpClient);
   });

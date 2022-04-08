@@ -49,7 +49,7 @@ describe('UsersService', () => {
   });
 
   it('should retrieve data from the api by get method', () => {
-    service.getUsers().subscribe( res => {
+    service.getUsers().subscribe(res => {
       const req = httpTestingController.expectOne(userUrl);
       expect(req.request.method).toEqual('GET');
       req.flush(mockData);
@@ -57,7 +57,7 @@ describe('UsersService', () => {
   });
 
   it('should retrieve data from the api', () => {
-    service.getUsers().subscribe( res => {
+    service.getUsers().subscribe(res => {
       expect(res.length).toBeGreaterThan(0);
       expect(res).toBe(mockData);
     });

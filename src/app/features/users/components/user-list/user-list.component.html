@@ -48,5 +48,8 @@
                 </td>
             </tr>
         </ng-template>
+        <ng-template *ngIf="users.length === 0" pTemplate="summary">
+            There are no users
+        </ng-template>
     </p-table>
 </div>

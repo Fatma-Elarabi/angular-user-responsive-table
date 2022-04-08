@@ -29,18 +29,26 @@ export class UserListComponent implements OnInit, OnDestroy {
   constructor(
     private userService: UsersService,
     private messageService: MessageService
-    ) { }
+  ) { }
 
   ngOnInit(): void {
     this.getUsers();
     this.selectedColumns = this.cols;
   }
 
+  @Input() get selectedCols(): Column[] {
+    return this.selectedColumns;
+  }
+
+  set selectedCols(val: Column[]) {
+    this.selectedColumns = this.cols.filter((col: Column) => val.includes(col));
+  }
+
   getUsers(): void {
     this.userService.getUsers().pipe(takeUntil(this._destroyed$)).subscribe({
       next: (users) => this.users = users,
       error: () => {
-        this.messageService.add({severity:'error', detail: 'Something Went Wrong'})
+        this.messageService.add({ severity: 'error', detail: 'Something Went Wrong' })
         this.loading = false
       },
       complete: () => this.loading = false
@@ -49,10 +57,10 @@ export class UserListComponent implements OnInit, OnDestroy {
 
   exportExcel() {
     import("xlsx").then(xlsx => {
-        const worksheet = xlsx.utils.json_to_sheet(this.users);
-        const workbook = { Sheets: { 'data': worksheet }, SheetNames: ['data'] };
-        const excelBuffer = xlsx.write(workbook, { bookType: 'xlsx', type: 'array' });
-        this.saveAsExcelFile(excelBuffer, "users");
+      const worksheet = xlsx.utils.json_to_sheet(this.users);
+      const workbook = { Sheets: { 'data': worksheet }, SheetNames: ['data'] };
+      const excelBuffer = xlsx.write(workbook, { bookType: 'xlsx', type: 'array' });
+      this.saveAsExcelFile(excelBuffer, "users");
     });
   }
 
@@ -60,17 +68,9 @@ export class UserListComponent implements OnInit, OnDestroy {
     const EXCEL_TYPE = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8';
     const EXCEL_EXTENSION = '.xlsx';
     const data: Blob = new Blob([buffer], {
-        type: EXCEL_TYPE
+      type: EXCEL_TYPE
     });
     FileSaver.saveAs(data, fileName + '_export_' + new Date().getTime() + EXCEL_EXTENSION);
-  }
-
-  @Input() get selectedCols(): Column[] {
-    return this.selectedColumns;
-  }
-
-  set selectedCols(val: Column[]) {
-      this.selectedColumns = this.cols.filter((col: Column) => val.includes(col));
   }
 
   ngOnDestroy() {

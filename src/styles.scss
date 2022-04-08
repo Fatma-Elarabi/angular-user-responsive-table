@@ -2,33 +2,25 @@
 @import 'assets/scss/theme.scss';
 
 body {
-    padding: 55px;
-    background-color: var(--main-bg) !important;
+  padding: 55px;
+  background-color: var(--main-bg) !important;
 }
 
 ::-webkit-scrollbar {
-    width: 10px;
-  }
-  
-  ::-webkit-scrollbar-track {
-    background: #e2e2e2;
-  }
-  
-  ::-webkit-scrollbar-thumb {
-    background: var(--primary-bg);
-  }
-  
-  ::-webkit-scrollbar-thumb:hover {
-    background: var(--main-bg);
-  }
+  width: 10px;
+}
 
-  .overflow_dots {
-    overflow: hidden;
-    display: inline-block;
-    text-overflow: ellipsis;
-    // white-space: nowrap;
-    overflow: hidden;
-  }
+::-webkit-scrollbar-track {
+  background: #e2e2e2;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-bg);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--main-bg);
+}
 
 @media (max-width: 575.98px) {
   body {

@@ -5,7 +5,7 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { SharedModule } from './features/shared/shared.module';
+import { SharedModule } from './shared/shared.module';
 import { UserListComponent } from './features/users/components/user-list/user-list.component';
 import { FormsModule } from '@angular/forms';
 import { MessageService } from 'primeng/api';

@@ -62,12 +62,13 @@ $textFontSize: 0.9rem;
                     .p-multiselect-label {
                         padding: 0.55rem 0.75rem;
                     }
-                    
+
                     .p-multiselect-panel {
                         .p-multiselect-items {
                             &:not(.p-multiselect-virtualscroll) {
                                 background: #f8f9fa;
                             }
+
                             .p-multiselect-item {
                                 &.p-highlight {
                                     color: #000;
@@ -109,8 +110,8 @@ $textFontSize: 0.9rem;
             }
 
             .p-datatable-thead {
-                & > tr {
-                    & > th {
+                &>tr {
+                    &>th {
                         border: none;
                         background-color: var(--org-bg);
                         color: #fff;
@@ -129,14 +130,14 @@ $textFontSize: 0.9rem;
                     }
                 }
             }
- 
+
             .p-datatable-tbody {
-                & > tr {
+                &>tr {
                     box-shadow: 3px 3px 5px #c1c0c0;
                     background: var(--primary-bg);
                     color: var(--secondary-text);
 
-                    & > td {
+                    &>td {
                         padding: 0.3rem 1rem;
                         border: none;
                     }
@@ -154,7 +155,7 @@ $textFontSize: 0.9rem;
                     }
                 }
             }
-        } 
+        }
     }
 }
 
@@ -164,9 +165,11 @@ $textFontSize: 0.9rem;
             .p-datatable {
                 .p-datatable-header {
                     flex-direction: column;
+
                     .p-inputtext {
                         padding: 0.35rem 0.75rem;
                     }
+
                     .p-column-filter-row {
                         p-columnfilterformelement {
                             width: 100%;
@@ -185,12 +188,13 @@ $textFontSize: 0.9rem;
                     }
                 }
 
-                .p-datatable-tbody  {
-                    & > tr {
-                        & > td {
+                .p-datatable-tbody {
+                    &>tr {
+                        &>td {
                             font-size: 0.8rem;
                         }
                     }
+
                     .ui-column-title {
                         font-weight: 700;
                     }
@@ -218,9 +222,9 @@ $textFontSize: 0.9rem;
                     }
                 }
 
-                .p-datatable-tbody  {
-                    & > tr {
-                        & > td {
+                .p-datatable-tbody {
+                    &>tr {
+                        &>td {
                             font-size: 0.8rem;
                         }
                     }
@@ -235,8 +239,8 @@ $textFontSize: 0.9rem;
         .users-table {
             .p-datatable {
                 .p-datatable-thead {
-                    & > tr {
-                        & > th {
+                    &>tr {
+                        &>th {
                             padding: 0rem 1rem;
                         }
                     }
