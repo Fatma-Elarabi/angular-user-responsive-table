@@ -13,7 +13,7 @@ export class UsersService {
   constructor(private http: HttpClient) { }
 
   getUsers(): Observable<Result[]> {
-    return this.http.get<User>(`${environment.apiUrl}?key=${environment.apiKey}&ref=hjgddx1b&results=10`)
+    return this.http.get<User>(`${environment.apiUrl}?key=${environment.apiKey}&ref=q0yoauyd&results=10`)
       .pipe(
         map(res => {
           res.results.forEach(element => {
